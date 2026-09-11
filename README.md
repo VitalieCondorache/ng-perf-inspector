@@ -1,3 +1,6 @@
+[![npm version](https://img.shields.io/npm/v/ng-perf-inspector.svg)](https://www.npmjs.com/package/ng-perf-inspector)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 # ng-perf-inspector 🚀
 
 A lightweight debugging and performance monitoring toolkit designed for modern Angular applications.
