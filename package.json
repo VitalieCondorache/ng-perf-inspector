@@ -1,6 +1,6 @@
 {
   "name": "ng-perf-inspector",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A lightweight debugging and performance monitoring toolkit for modern Angular applications.",
   "main": "http-perf.interceptor.ts",
   "scripts": {

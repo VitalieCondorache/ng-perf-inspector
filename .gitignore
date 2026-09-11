@@ -6,6 +6,7 @@
 /e2e/test-output/
 /.angular/
 .angular/
+.npmrc
 
 # Node modules and dependency files
 /node_modules/

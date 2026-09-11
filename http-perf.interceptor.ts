@@ -1,4 +1,5 @@
 import { HttpInterceptorFn } from '@angular/common/http';
+import { isDevMode } from '@angular/core';
 import { tap } from 'rxjs';
 
 export const httpPerfInterceptor: HttpInterceptorFn = (req, next) => {
@@ -7,6 +8,8 @@ export const httpPerfInterceptor: HttpInterceptorFn = (req, next) => {
   return next(req).pipe(
     tap({
       next: () => {
+        if (!isDevMode()) return;
+        
         const duration = (performance.now() - startTime).toFixed(2);
         console.log(
           `%c[Perf Inspector] %c${req.method} %c${req.url} took %c${duration}ms`,
@@ -17,6 +20,8 @@ export const httpPerfInterceptor: HttpInterceptorFn = (req, next) => {
         );
       },
       error: (error) => {
+        if (!isDevMode()) return;
+        
         const duration = (performance.now() - startTime).toFixed(2);
         console.error(
           `%c[Perf Inspector ERROR] %c${req.method} %c${req.url} failed after %c${duration}ms`,
