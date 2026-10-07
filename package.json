@@ -1,18 +1,54 @@
 {
   "name": "ng-perf-inspector",
-  "version": "1.0.1",
-  "description": "A lightweight debugging and performance monitoring toolkit for modern Angular applications.",
-  "main": "http-perf.interceptor.ts",
+  "version": "2.0.0",
+  "description": "A development-only HTTP interceptor that logs Angular request timings to the console.",
+  "type": "module",
+  "main": "./dist/http-perf.interceptor.js",
+  "module": "./dist/http-perf.interceptor.js",
+  "types": "./dist/http-perf.interceptor.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/http-perf.interceptor.d.ts",
+      "import": "./dist/http-perf.interceptor.js",
+      "default": "./dist/http-perf.interceptor.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "sideEffects": false,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc -p tsconfig.json",
+    "clean": "rm -rf dist",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "prepublishOnly": "npm run clean && npm run build"
   },
   "keywords": [
     "angular",
-    "performance",
-    "debug",
+    "http",
     "interceptor",
-    "signals"
+    "performance",
+    "timing",
+    "developer-tools"
   ],
   "author": "Vitalie Condorache",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VitalieCondorache/ng-perf-inspector.git"
+  },
+  "peerDependencies": {
+    "@angular/common": ">=16.0.0",
+    "@angular/core": ">=16.0.0",
+    "rxjs": "^7.0.0"
+  },
+  "devDependencies": {
+    "@angular/common": "^20.0.0",
+    "@angular/core": "^20.0.0",
+    "rxjs": "^7.8.0",
+    "typescript": "^5.5.0"
+  }
 }
